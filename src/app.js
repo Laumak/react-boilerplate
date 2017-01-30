@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/app.scss";
+import "../node_modules/font-awesome/css/font-awesome.css";
 
 import Counter from "./components/counter";
 
