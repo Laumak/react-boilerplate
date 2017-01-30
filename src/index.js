@@ -1,23 +1,25 @@
 import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 
 import App from "./app";
 
-render(
+const appEl = document.getElementById("app");
+
+ReactDOM.render(
     <AppContainer>
-        <App/>
-    </AppContainer>, document.getElementById("app")
+        <App />
+    </AppContainer>, appEl
 );
 
 if(module.hot) {
     module.hot.accept("./app", () => {
         require("./app");
 
-        render(
+        ReactDOM.render(
             <AppContainer>
-                <App/>
-            </AppContainer>, document.getElementById("app")
+                <App />
+            </AppContainer>, appEl
         );
     });
 }
