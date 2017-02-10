@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import Button from "./button";
 
 class Counter extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            count: 0
+            count: 0,
         };
 
         this.calculateCount = this.calculateCount.bind(this);
@@ -21,29 +22,25 @@ class Counter extends Component {
 
     render() {
         const buttonStyle = { marginRight: 10 };
-        
+
         return(
             <div>
                 <h2 className="title">{ this.state.count }</h2>
 
-                <a  className="button is-success"
-                    onClick={() => this.calculateCount("increment")} 
+                <Button
+                    type="success"
+                    text="Increment"
+                    handleOnClick={() => this.calculateCount("increment")}
                     style={buttonStyle}
-                >
-                    <span className="icon is-small">
-                        <i className="fa fa-plus"></i>
-                    </span>
-                    <span>Increment</span>
-                </a>
+                    icon="fa fa-plus"
+                />
 
-                <a  className="button is-danger" 
-                    onClick={() => this.calculateCount("decrement")}
-                >
-                    <span className="icon is-small">
-                        <i className="fa fa-minus"></i>
-                    </span>
-                    <span>Decrement</span>
-                </a>
+                <Button
+                    type="danger"
+                    text="Decrement"
+                    handleOnClick={() => this.calculateCount("decrement")}
+                    icon="fa fa-minus"
+                />
             </div>
         );
     }
