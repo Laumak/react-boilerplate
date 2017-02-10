@@ -8,14 +8,13 @@ export default {
     resolve: {
         extensions: ["", ".js", ".jsx", ".json"],
     },
-    debug: true,
     devtool: "source-map",
-    noInfo: false,
+    noInfo: true,
+    target: "web",
     entry: {
         vendor: path.resolve(__dirname, "src/vendor"),
         main: path.resolve(__dirname, "src/index"),
     },
-    target: "web",
     output: {
         path: path.resolve(__dirname, "dist"),
         publicPath: "/",
@@ -43,7 +42,7 @@ export default {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loaders: ["babel"],
+                loader: "babel-loader",
             }, {
                 test: /\.(scss|css)$/,
                 loaders: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
